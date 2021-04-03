@@ -4,6 +4,7 @@ const BuildControl = props => {
     const ADD_ITEMS = [...props.menuItem];
     //<button onClick={()=>{buttonAction(item)}} key={index}>Add {item}</button>
     return (
+        
         ADD_ITEMS.map((item, index) => {
             return (
 
