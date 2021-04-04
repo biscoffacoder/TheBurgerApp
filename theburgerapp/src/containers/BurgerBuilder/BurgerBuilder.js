@@ -11,6 +11,7 @@ const BurgerBuilder = (props) => {
     const [price, setPrice] = useState();
     const [allIngredPrice, setAllIngredPrice] = useState([]);
     const [id, setId] = useState();
+    const [legit, setLegit]=useState();
 
     const ADD_ITEMS = [
         { label: "Cheese", price: 30, type: "cheese" },
@@ -29,6 +30,7 @@ const BurgerBuilder = (props) => {
         setAllIngredPrice(ADD_ITEMS);
         console.log("Useeffect")
         setId(7);
+        setLegit(false);
     }, []);
 
     const addItem = (item) => {
@@ -66,26 +68,30 @@ const BurgerBuilder = (props) => {
 
     }
     let order = null;
-    const purchase = () => {
-        if (price > 40) {
+    const purchase = (item) => {
+        
+        if (item > 40) {
             order = "This order can be added to cart";
-            console.log("Inside order")
+            console.log("Inside order");
+            setLegit(true);
 
         }
 
     }
-
+useEffect(()=>{
+    console.log("is legit" + legit);
+},[legit])
 
     return (
         <Auxillary>
 
             <div className="BurgerBuilder">
-                <Burger ingredients={ingred} />
-                <button className="OrderButton" onClick={purchase}> ORDER NOW</button>
+                <Burger ingredients={ingred} purchased={purchase} curPrice={price}/>
+               
                 <p >{order}</p>
             </div>
-            <Modal>
-                <OrderSummary ingredients={ingred} menu={ADD_ITEMS}/>
+            <Modal >
+                <OrderSummary ingredients={ingred} menu={ADD_ITEMS} isLegit={legit} />
             </Modal>
 
             <div className="BurgerBuilder">
