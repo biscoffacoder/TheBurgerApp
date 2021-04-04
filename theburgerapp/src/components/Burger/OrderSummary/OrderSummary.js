@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from './../Button/Button';
 
 const OrderSummary = (props) => {
     //<li key={item.label}> <span style = {{textTransform:'capitalize'}}>{item}</span>:{props.ingredients[item.label]}</li>
@@ -15,6 +16,9 @@ const OrderSummary = (props) => {
         <div>
             <h3>YOUR ORDER</h3>
             {couObj.map((item, index) => { return (<li key={index}>{item.label} : {item.count}</li>) })}
+            <Button isBtn={props.buttonType} isClicked={props.select}>CONTINUE</Button>
+            <Button isBtn={props.buttonType} isClicked={props.cancel}>CANCEL</Button>
+
         </div>
     )
 }

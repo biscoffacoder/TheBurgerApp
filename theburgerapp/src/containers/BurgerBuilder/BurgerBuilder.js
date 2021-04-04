@@ -11,7 +11,8 @@ const BurgerBuilder = (props) => {
     const [price, setPrice] = useState();
     const [allIngredPrice, setAllIngredPrice] = useState([]);
     const [id, setId] = useState();
-    const [legit, setLegit]=useState();
+    const [legit, setLegit] = useState();
+    const [buttonType, setButtonType] = useState();
 
     const ADD_ITEMS = [
         { label: "Cheese", price: 30, type: "cheese" },
@@ -38,7 +39,7 @@ const BurgerBuilder = (props) => {
         let selectedIngred = [...ingred];
         let currObj = allIngredPrice.find((val) => { return val.label === item });
         console.log(currObj);
-        
+
         let burgerBottom = selectedIngred.pop();
 
         selectedIngred.push(currObj);
@@ -69,7 +70,7 @@ const BurgerBuilder = (props) => {
     }
     let order = null;
     const purchase = (item) => {
-        
+
         if (item > 40) {
             order = "This order can be added to cart";
             console.log("Inside order");
@@ -78,20 +79,30 @@ const BurgerBuilder = (props) => {
         }
 
     }
-useEffect(()=>{
-    console.log("is legit" + legit);
-},[legit])
+   
+    const btnSelect =()=>
+    {
+        setButtonType("Success");
+        alert("Moving to payment page");
+
+    }
+    const btnCancel=()=>
+    {
+        setButtonType("Danger");
+        setLegit(false);
+    }
 
     return (
         <Auxillary>
 
             <div className="BurgerBuilder">
-                <Burger ingredients={ingred} purchased={purchase} curPrice={price}/>
-               
+                <Burger ingredients={ingred} purchased={purchase} curPrice={price} />
+
                 <p >{order}</p>
             </div>
             <Modal >
-                <OrderSummary ingredients={ingred} menu={ADD_ITEMS} isLegit={legit} />
+                <OrderSummary ingredients={ingred} menu={ADD_ITEMS} isLegit={legit} 
+                buttonType={buttonType} select={btnSelect} cancel={btnCancel} />
             </Modal>
 
             <div className="BurgerBuilder">
