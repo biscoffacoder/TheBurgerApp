@@ -4,13 +4,16 @@ import BurgerBuilder from "./containers/BurgerBuilder/BurgerBuilder";
 
 import React, { Component } from 'react'
 import Toolbar from "./components/Navigation/Toolbar/Toolbar";
+import SideDrawer from "./components/Navigation/SideDrawer/SideDrawer";
 
 export class App extends Component {
   render() {
     return (
       <div>
-        <Toolbar/>
-                <BurgerBuilder/>
+        
+        <Toolbar />
+        <SideDrawer/>
+        <BurgerBuilder />
       </div>
     )
   }

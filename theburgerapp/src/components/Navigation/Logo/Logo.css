@@ -3,6 +3,8 @@
   background-color: wheat;
   padding: 8px;
   height: 80%;
+  box-sizing: border-box;
+  border-radius: 5px;
    
 }
 

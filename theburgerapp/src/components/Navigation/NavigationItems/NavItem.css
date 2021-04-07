@@ -1,0 +1,64 @@
+.NavItem
+{
+    margin: 8%;
+    box-sizing: content-box;
+    display: grid;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    top: 0;
+    right: 2;
+
+}
+
+.NavItem button:hover
+{
+    background-color:tomato;
+    border-bottom: 4px turquoise;
+    color: white;
+}
+.NavItem button:active{
+    background-color: fuchsia;
+    border-bottom: 4px turquoise;
+    color: white;}
+
+.NavItem button.active
+{
+    background-color: violet;
+    border-bottom: 4px turquoise;
+    color: white;
+}
+
+@media (max-width: 600px)
+{
+    .NavItem
+{
+    margin: 10px 0;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    
+    
+    
+}
+
+.NavItem button
+{
+    background-color:tomato;
+    border-bottom: 4px turquoise;
+    color:gray;
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+}
+.NavItem button:active{
+    background-color: fuchsia;
+    border-bottom: 4px turquoise;
+    color: white;}
+
+.NavItem button.active
+{
+    color:greenyellow;
+}
+}
